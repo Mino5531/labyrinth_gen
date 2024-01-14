@@ -13,7 +13,15 @@ export class DisjointSet {
         if (item.parent === item) {
             return item;
         }
-        item.parent = this.find(item.parent.value); // Path compression
+        item.parent = this.find_by_disjointSetElement(item.parent); // Path compression
+        return item.parent;
+    }
+    //This function is faster than find(value) because is does not search for the item in the items array.
+    find_by_disjointSetElement(item: DisjointSetElement): DisjointSetElement {
+        if (item.parent === item) {
+            return item;
+        }
+        item.parent = this.find_by_disjointSetElement(item.parent); // Path compression
         return item.parent;
     }
     //Union the sets that the given items belong to.
