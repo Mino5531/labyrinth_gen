@@ -3,8 +3,6 @@ import { Maze } from './maze';
 const canvas = document.getElementById('maze-canvas') as HTMLCanvasElement;
 const maze_size = document.getElementById('maze-size') as HTMLInputElement;
 let maze = new Maze(maze_size.valueAsNumber, canvas);
-document.getElementById('solve').addEventListener('click', () => {
-});
 document.getElementById('generate').addEventListener('click', () => {
     maze = new Maze(maze_size.valueAsNumber, canvas);
     maze.generate();
